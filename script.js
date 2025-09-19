@@ -240,10 +240,10 @@ bookingForm.addEventListener('submit', function (event) {
     document.getElementById('summaryEmail').textContent = email;
     document.getElementById('summaryPhone').textContent = phone;
     document.getElementById('summaryApartmentName').textContent = apartmentName;
-    document.getElementById('summaryMonthlyCost').textContent = `₦${apartmentPrice.toLocaleString()}`;
+    document.getElementById('summaryMonthlyCost').textContent = `${apartmentPrice.toLocaleString()}`;
     document.getElementById('summaryDuration').textContent = duration;
     document.getElementById('summaryStartDate').textContent = new Date(startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('summaryTotalCost').textContent = `₦${totalCost.toLocaleString()}`;
+    document.getElementById('summaryTotalCost').textContent = `${totalCost.toLocaleString()}`;
 
     bookingModal.classList.remove('hidden');
     setTimeout(() => {
