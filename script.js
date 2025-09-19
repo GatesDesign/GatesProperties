@@ -323,3 +323,120 @@ animationStyle.innerHTML = `
     }
 `;
 document.head.appendChild(animationStyle);
+
+
+// Setup canvas for rainfall in booking section
+const canvasBooking = document.getElementById("rain-booking");
+const ctxBooking = canvasBooking.getContext("2d");
+
+canvasBooking.width = window.innerWidth;
+canvasBooking.height = canvasBooking.offsetHeight;
+
+let raindropsBooking = [];
+
+for (let i = 0; i < 100; i++) {
+    raindropsBooking.push({
+        x: Math.random() * canvasBooking.width,
+        y: Math.random() * canvasBooking.height,
+        length: Math.random() * 20 + 10,
+        speed: Math.random() * 4 + 2,
+    });
+}
+
+function drawRainBooking() {
+    ctxBooking.clearRect(0, 0, canvasBooking.width, canvasBooking.height);
+    ctxBooking.strokeStyle = "rgba(0,0,0,0.3)"; // softer rain for booking section
+    ctxBooking.lineWidth = 2;
+    ctxBooking.lineCap = "round";
+
+    raindropsBooking.forEach((drop) => {
+        ctxBooking.beginPath();
+        ctxBooking.moveTo(drop.x, drop.y);
+        ctxBooking.lineTo(drop.x, drop.y + drop.length);
+        ctxBooking.stroke();
+    });
+
+    updateRainBooking();
+}
+
+function updateRainBooking() {
+    raindropsBooking.forEach((drop) => {
+        drop.y += drop.speed;
+        if (drop.y > canvasBooking.height) {
+            drop.y = -drop.length;
+            drop.x = Math.random() * canvasBooking.width;
+        }
+    });
+}
+
+function animateRainBooking() {
+    drawRainBooking();
+    requestAnimationFrame(animateRainBooking);
+}
+
+animateRainBooking();
+
+// Resize canvas when window size changes
+window.addEventListener("resize", () => {
+    canvasBooking.width = window.innerWidth;
+    canvasBooking.height = canvasBooking.offsetHeight;
+});
+
+
+
+// Setup canvas for rainfall
+const canvas = document.getElementById("rain");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let raindrops = [];
+
+for (let i = 0; i < 120; i++) {
+    raindrops.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        length: Math.random() * 20 + 10,
+        speed: Math.random() * 5 + 2,
+    });
+}
+
+function drawRain() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "rgba(255,255,255,0.6)";
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+
+    raindrops.forEach((drop) => {
+        ctx.beginPath();
+        ctx.moveTo(drop.x, drop.y);
+        ctx.lineTo(drop.x, drop.y + drop.length);
+        ctx.stroke();
+    });
+
+    updateRain();
+}
+
+function updateRain() {
+    raindrops.forEach((drop) => {
+        drop.y += drop.speed;
+        if (drop.y > canvas.height) {
+            drop.y = -drop.length;
+            drop.x = Math.random() * canvas.width;
+        }
+    });
+}
+
+function animateRain() {
+    drawRain();
+    requestAnimationFrame(animateRain);
+}
+
+animateRain();
+
+// Resize canvas when window size changes
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
