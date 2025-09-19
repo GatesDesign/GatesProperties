@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GatesProperties | Monthly Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-700 antialiased">
+
+   <nav id="navbar" class="bg-white shadow-md top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="#" class="flex-shrink-0">
+                <h1 class="text-2xl font-bold text-orange-600">Gates<span class="text-red-400">Properties</span></h1>
+            </a>
+
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="text-slate-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                <a href="#apartments" class="text-slate-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Apartments</a>
+                <a href="#booking" class="text-slate-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Booking</a>
+                <a href="#reviews" class="text-slate-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Reviews</a>
+                <a href="#contact" class="text-slate-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+
+                <!-- Fire Button -->
+                <a href="#booking" class="fire-btn relative bg-orange-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm hover:shadow-md transition-all">
+                    <span>Book Now 🔥</span>
+                    <span class="flame"></span>
+                </a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-orange-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 transition-all">
+                    <span class="sr-only">Open main menu</span>
+                    <svg id="hamburger-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <svg id="close-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden transition-all ease-out duration-300 origin-top">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#home" class="text-slate-600 hover:bg-slate-100 hover:text-orange-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a>
+            <a href="#apartments" class="text-slate-600 hover:bg-slate-100 hover:text-orange-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">Apartments</a>
+            <a href="#booking" class="text-slate-600 hover:bg-slate-100 hover:text-orange-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">Booking</a>
+            <a href="#reviews" class="text-slate-600 hover:bg-slate-100 hover:text-orange-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">Reviews</a>
+            <a href="#contact" class="text-slate-600 hover:bg-slate-100 hover:text-orange-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">Contact</a>
+
+            <!-- Fire Button for Mobile -->
+            <a href="#booking" class="fire-btn relative bg-orange-500 hover:bg-red-600 text-white block w-full text-center px-4 py-2 mt-2 rounded-lg text-base font-medium shadow-sm hover:shadow-md transition-all">
+                <span>Book Now 🔥</span>
+                <span class="flame"></span>
+                <span class="flame2"></span>
+                <span class="flame3"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+    <main>
+     <section id="home" class="hero-bg w-full h-[calc(100vh-80px)] flex items-center justify-center text-white relative overflow-hidden">
+    <!-- Rain Canvas -->
+    <canvas id="rain" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
+
+    <div class="text-center px-4 relative z-10">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-down text-white">
+            Find Your Perfect Apartment
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-300 text-white">
+            Comfortable, flexible, and fully-furnished apartments for your extended stay.
+        </p>
+        <a href="#apartments" class="bg-gradient-to-r from-red-600 to-orange-500 hover:from-orange-600 hover:to-red-700 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-600">
+            Explore Apartments
+        </a>
+    </div>
+</section>
+
+<script>
+// Setup canvas for rainfall
+const canvas = document.getElementById("rain");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let raindrops = [];
+
+for (let i = 0; i < 120; i++) {
+    raindrops.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        length: Math.random() * 20 + 10,
+        speed: Math.random() * 5 + 2,
+    });
+}
+
+function drawRain() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "rgba(255,255,255,0.6)";
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+
+    raindrops.forEach((drop) => {
+        ctx.beginPath();
+        ctx.moveTo(drop.x, drop.y);
+        ctx.lineTo(drop.x, drop.y + drop.length);
+        ctx.stroke();
+    });
+
+    updateRain();
+}
+
+function updateRain() {
+    raindrops.forEach((drop) => {
+        drop.y += drop.speed;
+        if (drop.y > canvas.height) {
+            drop.y = -drop.length;
+            drop.x = Math.random() * canvas.width;
+        }
+    });
+}
+
+function animateRain() {
+    drawRain();
+    requestAnimationFrame(animateRain);
+}
+
+animateRain();
+
+// Resize canvas when window size changes
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+
+   <!-- Search Box -->
+<div class="relative z-20 px-4 sm:px-6 md:px-8 mt-6 
+            md:absolute md:bottom-0 md:left-0 md:right-0 
+            md:mx-auto md:max-w-4xl md:mb-[-40px] md:transform md:translate-y-1/2">
+    <form class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 md:p-8">
+        <div>
+            <label for="location-search" class="block text-sm font-medium text-orange-600 mb-1">Location</label>
+            <input type="text" id="location-search" placeholder="e.g., Osun, Ibadan" class="w-full p-3 text-slate-700 border border-slate-300 rounded-lg shadow-sm focus:ring-red-500 focus:border-orange-500">
+        </div>
+        <div>
+            <label for="price-range" class="block text-sm font-medium text-orange-600 mb-1">Price Range</label>
+            <select id="price-range" class="w-full p-3 border border-slate-300 rounded-lg shadow-sm text-slate-700 focus:ring-red-500 focus:border-orange-500">
+                <option>Any</option>
+                <option>#100,000 - #200,000</option>
+                <option>#200,000 - #300,000</option>
+                <option>#300,000+</option>
+            </select>
+        </div>
+        <div>
+            <label for="bedrooms-filter" class="block text-sm font-medium text-orange-600 mb-1">Bedrooms</label>
+            <select id="bedrooms-filter" class="w-full p-3 border border-slate-300 rounded-lg shadow-sm text-slate-700 focus:ring-red-500 focus:border-orange-500">
+                <option>Any</option>
+                <option>1 Bedroom</option>
+                <option>2 Bedrooms</option>
+                <option>3+ Bedrooms</option>
+            </select>
+        </div>
+        <button type="button" class="bg-gradient-to-r from-orange-500 to-red-600 hover:from-red-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all w-full sm:col-span-2 lg:col-span-1">
+            Search
+        </button>
+    </form>
+</div>
+</section>
+
+
+        <div class="pt-24 md:pt-32"></div>
+
+        <section id="apartments" class="py-8 sm:py-16 bg-slate-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Our Premier Apartments</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Discover a range of apartments tailored to your needs, from cozy studios to spacious penthouses.</p>
+                </div>
+
+                <div class="mb-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex flex-wrap gap-2">
+                        <select id="filter-location" class="p-2 border border-slate-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 bg-white">
+                            <option value="">All Locations</option>
+                            <option value="Downtown Core">Osun</option>
+                            <option value="Riverside District">Ibadan</option>
+                            <option value="Parkside Suburb">Lagos</option>
+                            <option value="Uptown Views">Abuja</option>
+                        </select>
+                        <select id="filter-price" class="p-2 border border-slate-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 bg-white">
+                            <option value="">All Prices</option>
+                            <option value="0-1500">Under #150,000</option>
+                            <option value="1500-2500">#150,000 - #250,000</option>
+                            <option value="2500-100000">Over #250,000</option>
+                        </select>
+                        <select id="filter-amenities" class="p-2 border border-slate-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 bg-white">
+                            <option value="">All Amenities</option>
+                            <option value="gym">Gym</option>
+                            <option value="pool">Pool</option>
+                            <option value="pet friendly">Pet Friendly</option>
+                            <option value="balcony">Balcony</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select id="sort-apartments" class="p-2 border border-slate-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 bg-white">
+                            <option value="featured">Sort by: Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating-desc">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="apartment-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+            </div>
+        </section>
+
+       <section id="booking" class="py-8 sm:py-16 bg-white relative overflow-hidden">
+    <!-- Rain Canvas -->
+    <canvas id="rain-booking" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Secure Your Stay</h2>
+                <p class="text-lg text-slate-600">Fill out the form below to book your preferred apartment.</p>
+            </div>
+            <form id="bookingForm" class="space-y-6 bg-slate-50 p-8 sm:p-10 rounded-xl shadow-xl">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                    <input type="text" name="name" id="name" required 
+                        class="w-full p-3 border border-slate-300 rounded-lg shadow-sm 
+                               focus:ring-orange-500 focus:border-orange-500" 
+                        placeholder="John Adekunle">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                    <input type="email" name="email" id="email" required 
+                        class="w-full p-3 border border-slate-300 rounded-lg shadow-sm 
+                               focus:ring-red-500 focus:border-red-500" 
+                        placeholder="you@example.com">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
+                    <input type="tel" name="phone" id="phone" required 
+                        class="w-full p-3 border border-slate-300 rounded-lg shadow-sm 
+                               focus:ring-orange-500 focus:border-orange-500" 
+                        placeholder="+2348144241324">
+                </div>
+                <div>
+                    <label for="apartment-select" class="block text-sm font-medium text-slate-700 mb-1">Select Apartment</label>
+                    <select name="apartment" id="apartment-select" required 
+                        class="w-full p-3 border border-slate-300 rounded-lg shadow-sm 
+                               focus:ring-red-500 focus:border-red-500 bg-white">
+                        <option value="" disabled selected>Choose an apartment</option>
+                        <option value="Chic Downtown Loft" data-price="2200">Chic Downtown Loft - $2200/month</option>
+                        <option value="Riverside Serenity Suite" data-price="1850">Riverside Serenity Suite - $1850/month</option>
+                        <option value="Parkview Family Home" data-price="2900">Parkview Family Home - $2900/month</option>
+                        <option value="Studio Sparkle" data-price="1500">Studio Sparkle - $1500/month</option>
+                        <option value="Uptown Modern Flat" data-price="2600">Uptown Modern Flat - $2600/month</option>
+                        <option value="Cozy Garden Studio" data-price="1350">Cozy Garden Studio - $1350/month</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="start-date" class="block text-sm font-medium text-slate-700 mb-1">Start Date</label>
+                        <input type="date" name="start-date" id="start-date" required 
+                            class="w-full p-3 border border-slate-300 rounded-lg shadow-sm 
+                                   focus:ring-orange-500 focus:border-orange-500" min="">
+                    </div>
+                    <div>
+                        <label for="duration" class="block text-sm font-medium text-slate-700 mb-1">Duration (Months)</label>
+                        <input type="number" name="duration" id="duration" min="1" max="12" required 
+                            class="w-full p-3 border border-slate-300 rounded-lg shadow-sm 
+                                   focus:ring-red-500 focus:border-red-500" placeholder="e.g., 3">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" 
+                        class="w-full bg-gradient-to-r from-orange-500 to-red-500 
+                               hover:from-orange-600 hover:to-red-600 
+                               text-white font-semibold py-3 px-6 rounded-lg 
+                               shadow-md hover:shadow-lg transition-all text-lg">
+                        Submit Booking Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+// Setup canvas for rainfall in booking section
+const canvasBooking = document.getElementById("rain-booking");
+const ctxBooking = canvasBooking.getContext("2d");
+
+canvasBooking.width = window.innerWidth;
+canvasBooking.height = canvasBooking.offsetHeight;
+
+let raindropsBooking = [];
+
+for (let i = 0; i < 100; i++) {
+    raindropsBooking.push({
+        x: Math.random() * canvasBooking.width,
+        y: Math.random() * canvasBooking.height,
+        length: Math.random() * 20 + 10,
+        speed: Math.random() * 4 + 2,
+    });
+}
+
+function drawRainBooking() {
+    ctxBooking.clearRect(0, 0, canvasBooking.width, canvasBooking.height);
+    ctxBooking.strokeStyle = "rgba(0,0,0,0.3)"; // softer rain for booking section
+    ctxBooking.lineWidth = 2;
+    ctxBooking.lineCap = "round";
+
+    raindropsBooking.forEach((drop) => {
+        ctxBooking.beginPath();
+        ctxBooking.moveTo(drop.x, drop.y);
+        ctxBooking.lineTo(drop.x, drop.y + drop.length);
+        ctxBooking.stroke();
+    });
+
+    updateRainBooking();
+}
+
+function updateRainBooking() {
+    raindropsBooking.forEach((drop) => {
+        drop.y += drop.speed;
+        if (drop.y > canvasBooking.height) {
+            drop.y = -drop.length;
+            drop.x = Math.random() * canvasBooking.width;
+        }
+    });
+}
+
+function animateRainBooking() {
+    drawRainBooking();
+    requestAnimationFrame(animateRainBooking);
+}
+
+animateRainBooking();
+
+// Resize canvas when window size changes
+window.addEventListener("resize", () => {
+    canvasBooking.width = window.innerWidth;
+    canvasBooking.height = canvasBooking.offsetHeight;
+});
+</script>
+
+
+        <section id="reviews" class="py-8 sm:py-16 bg-gradient-to-r from-orange-50 to-red-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">What Our Guests Say</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Hear from our satisfied residents who found their home away from home with us.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Review 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+                <div class="flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                         alt="Avatar Sarah Adams" 
+                         class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-orange-500">
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-lg">Mariam Adams</h4>
+                        <div class="flex text-orange-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                    "The apartment was fantastic, clean, and in a great location. 
+                    The booking process was smooth and the team was very helpful. Highly recommend!"
+                </p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+                <div class="flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                         alt="Avatar Mark Johnson" 
+                         class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-red-500">
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-lg">Soji Ade</h4>
+                        <div class="flex text-orange-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                    "A perfect solution for my month-long business trip. 
+                    The amenities were top-notch and the apartment felt like a true home. 
+                    Will definitely use again."
+                </p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all md:col-span-2 lg:col-span-1">
+                <div class="flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                         alt="Avatar Lisa Chen" 
+                         class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-orange-500">
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-lg">Lisa Wura</h4>
+                        <div class="flex text-orange-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                    "My family and I stayed for two months and it was exceptional. 
+                    The apartment was spacious, well-equipped, and the customer service was always responsive."
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+        <section class="py-12 sm:py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-[url('https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-stripes.png')]"></div>
+    
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-6 drop-shadow-lg">
+            Ready to Find Your Next Home?
+        </h2>
+        <p class="text-lg sm:text-xl mb-10 max-w-2xl mx-auto text-orange-100">
+            Don’t wait to secure your ideal monthly rental. Explore our listings or get in touch with our team for personalized assistance.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+            
+            <!-- Button 1 -->
+            <a href="#apartments" 
+               class="bg-white hover:bg-orange-100 text-orange-600 font-semibold py-3 px-8 rounded-lg text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                View Apartments
+            </a>
+            
+            <!-- Button 2 -->
+            <a href="https://wa.me/2348144241324?text=Hi%2C%20I'm%20interested%20in%20your%20apartments." 
+               target="_blank" 
+               class="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center">
+                <i class="fab fa-whatsapp h-5 w-5 mr-2"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+
+        <section id="contact" class="py-8 sm:py-16 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Get In Touch</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Have questions or need assistance? We're here to help.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <!-- Contact Form -->
+      <form id="contactForm" class="space-y-6 bg-slate-50 p-8 sm:p-10 rounded-xl shadow-xl">
+        <div>
+          <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+          <input type="text" name="contact-name" id="contact-name" required class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-red-500 focus:border-red-500" placeholder="Your Name">
+        </div>
+        <div>
+          <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+          <input type="email" name="contact-email" id="contact-email" required class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-red-500 focus:border-red-500" placeholder="email@example.com">
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+          <textarea name="message" id="message" rows="4" required class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-red-500 focus:border-red-500" placeholder="How can we help you?"></textarea>
+        </div>
+        <div>
+          <button type="submit" class="w-full bg-orange-600 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all text-lg">
+            Send Message
+          </button>
+        </div>
+      </form>
+
+      <!-- Contact Info + Map -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-semibold text-slate-800 mb-4">Contact Information</h3>
+          <ul class="space-y-3 text-slate-600">
+            <li class="flex items-center">
+              <i class="fas fa-envelope h-6 w-6 mr-3 text-orange-600"></i>
+              <span>Email: <a href="mailto:info@apexliving.com" class="hover:text-red-600">info@GatesProperties.com</a></span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt h-6 w-6 mr-3 text-orange-600"></i>
+              <span>Phone: <a href="tel:+2348144241324" class="hover:text-red-600">+2348144241324</a></span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt h-6 w-6 mr-3 text-orange-600 flex-shrink-0 mt-1"></i>
+              <span>Office: Ede City, Osun State</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Google Map Embed -->
+        <div>
+          <h3 class="text-2xl font-semibold text-slate-800 mb-4">Our Location</h3>
+          <div class="w-full h-72 rounded-xl overflow-hidden shadow-lg border border-slate-200">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7874890.23684227!2d3.3792057!3d9.081999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104c0b1bfa3d0c07%3A0x9b93dfebc92f1c5b!2sNigeria!5e0!3m2!1sen!2sng!4v1695050582435!5m2!1sen!2sng"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="bg-gradient-to-r from-orange-600 to-red-600 text-white py-12 sm:py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Top Footer Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
+      
+      <!-- Brand Section -->
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-4">
+          Gates<span class="text-yellow-300">Properties</span>
+        </h3>
+        <p class="text-sm mb-4">
+          Providing premium monthly apartment rentals for comfort and convenience.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-yellow-200 hover:text-white transition-colors">
+            <i class="fab fa-facebook-f h-6 w-6"></i>
+          </a>
+          <a href="#" class="text-yellow-200 hover:text-white transition-colors">
+            <i class="fab fa-instagram h-6 w-6"></i>
+          </a>
+          <a href="#" class="text-yellow-200 hover:text-white transition-colors">
+            <i class="fab fa-twitter h-6 w-6"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#home" class="text-sm text-yellow-200 hover:text-white transition-colors">Home</a></li>
+          <li><a href="#apartments" class="text-sm text-yellow-200 hover:text-white transition-colors">Apartments</a></li>
+          <li><a href="#booking" class="text-sm text-yellow-200 hover:text-white transition-colors">Booking</a></li>
+          <li><a href="#reviews" class="text-sm text-yellow-200 hover:text-white transition-colors">Reviews</a></li>
+          <li><a href="#contact" class="text-sm text-yellow-200 hover:text-white transition-colors">Contact Us</a></li>
+          <li><a href="#" class="text-sm text-yellow-200 hover:text-white transition-colors">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-sm text-yellow-200 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="text-sm text-yellow-200 hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="#" class="text-sm text-yellow-200 hover:text-white transition-colors">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Stay Updated</h3>
+        <p class="text-sm text-yellow-200 mb-3">Subscribe to our newsletter for the latest deals and updates.</p>
+        <form class="flex">
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            class="w-full p-2.5 rounded-l-lg border-0 focus:ring-2 focus:ring-yellow-300 text-slate-800 text-sm"
+          >
+          <button 
+            type="submit" 
+            class="bg-yellow-400 hover:bg-yellow-500 text-red-800 p-2.5 rounded-r-lg text-sm font-medium transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="border-t border-red-400 pt-8 text-center">
+      <p class="text-sm text-yellow-200">
+        © <span id="currentYear"></span> NexLume(GatesTek). All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Auto-update year
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script>
+
+
+    <div id="bookingModal" class="fixed inset-0 z-[60] modal-backdrop items-center justify-center p-4 hidden transition-opacity duration-300 ease-in-out opacity-0">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full mx-auto p-6 sm:p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="modalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold text-slate-800">Booking Summary</h3>
+                <button id="closeModalButton" class="text-slate-400 hover:text-slate-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4 text-slate-600">
+                <p><strong>Name:</strong> <span id="summaryName"></span></p>
+                <p><strong>Email:</strong> <span id="summaryEmail"></span></p>
+                <p><strong>Phone:</strong> <span id="summaryPhone"></span></p>
+                <hr class="my-3 border-slate-200">
+                <p><strong>Apartment:</strong> <span id="summaryApartmentName"></span></p>
+                <p><strong>Monthly Cost:</strong> $<span id="summaryMonthlyCost"></span></p>
+                <p><strong>Duration:</strong> <span id="summaryDuration"></span> months</p>
+                <p><strong>Start Date:</strong> <span id="summaryStartDate"></span></p>
+                <hr class="my-3 border-slate-200">
+                <p class="text-lg font-semibold text-slate-800"><strong>Total Estimated Cost:</strong> $<span id="summaryTotalCost" class="text-emerald-600"></span></p>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-sm text-slate-500 mb-3">Thank you for your booking request! We will contact you shortly to confirm the details.</p>
+                <button id="modalConfirmButton" class="bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2.5 px-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    Okay, Got It!
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
